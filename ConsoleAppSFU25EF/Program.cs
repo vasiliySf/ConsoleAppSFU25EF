@@ -20,9 +20,10 @@ internal class Program
             var company1 = new Company { Name = "SF" };
             var company2 = new Company { Name = "VK" };
             var company3 = new Company { Name = "FB" };
+
             db.Companies.AddRange(company1, company2, company3);
 
-            var user1 = new User { Name = "Arthur", Role = "Admin", Company = company1, Email= "Arthur@gmail.com" };
+            var user1 = new User { Name = "Arthur", Role = "Admin", Company = company1, Email = "Arthur@gmail.com" };
             var user2 = new User { Name = "Bob", Role = "Admin", Company = company2, Email = "Bob@gmail.com" };
             var user3 = new User { Name = "Clark", Role = "User", Company = company2, Email = "Clark@gmail.com" };
             var user4 = new User { Name = "Dan", Role = "User", Company = company3, Email = "Dan@gmail.com" };
@@ -40,7 +41,6 @@ internal class Program
                 where user.CompanyId == 2
                 select user;
 
-            var users = db.Users.Include(u => u.Company).Where(u => u.CompanyId == 2);
             foreach (var user in users)
             {
                 // Вывод Id пользователей
