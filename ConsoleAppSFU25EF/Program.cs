@@ -41,6 +41,7 @@ internal class Program
                 where user.CompanyId == 2
                 select user;
 
+            var users = db.Users.Include(u => u.Company).Where(u => u.CompanyId == 2);
             foreach (var user in users)
             {
                 // Вывод Id пользователей
